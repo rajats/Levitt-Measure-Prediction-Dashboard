@@ -9,8 +9,11 @@ dict_req = req.json()
 df_in_daily = pd.DataFrame(dict_req['cases_time_series'])
 
 
-# get dataframe for India containing require parameters
 def get_in_df():
+    """
+    creates dataframe for India containing require parameters
+    :return: structured dataframe for India
+    """
     df_in_daily['date'] = df_in_daily['date'] + '2020'
     df_in_daily['date'] = pd.to_datetime(df_in_daily['date'])
     df_in_daily['dailyconfirmed'] = pd.to_numeric(df_in_daily['dailyconfirmed'])
