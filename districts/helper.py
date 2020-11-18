@@ -4,8 +4,12 @@ import pandas as pd
 df_all_districts = pd.read_csv('https://api.covid19india.org/csv/latest/districts.csv')
 
 
-# get dataframe for a district containing required parameters
 def get_district_df(district):
+    """
+    creates dataframe for a district containing required parameters
+    :param district: District name
+    :return: structured dataframe for a district
+    """
     df_district = df_all_districts[df_all_districts['District'] == district]
     df_district['Confirmed'] = pd.to_numeric(df_district['Confirmed'])
     df_district['Recovered'] = pd.to_numeric(df_district['Recovered'])
