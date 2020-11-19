@@ -1,5 +1,4 @@
 import requests
-import json
 import pandas as pd
 
 # get data from api and store it in a dataframe

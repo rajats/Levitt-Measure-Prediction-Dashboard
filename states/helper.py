@@ -1,5 +1,4 @@
 import requests
-import json
 import pandas as pd
 
 # state codes, since Covid 19 state time series data has states codes
