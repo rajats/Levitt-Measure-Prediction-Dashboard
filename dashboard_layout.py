@@ -67,9 +67,8 @@ dashboard_layout = dbc.Container(
         html.H1("Analyzing COVID-19 trends in India via Levitt's Measure"),
         html.P(children=["Levitt's measure H(t) for day t for COVID-19 is a very simple measure, it is defined as H("
                          "t)=X(t)/X(t-1), where X(t) is the cumulative number of COVID-19 cases on day t. When the "
-                         "value of H(t) approximately equals 1 (we have taken 1.0001 for India and 1.001 for states "
-                         "and districts), then the situation will be better and the number of new cases per day will "
-                         "become considerably low.", html.Br(),
+                         "value of H(t) approximately equals 1 (we have taken 1.0001) then the situation will be "
+                         "better and the number of new cases per day will become considerably low.", html.Br(),
                          "More information about Levitt's measure is given here: ",
                          html.A("Conceptual basis of the Levitt's measure",
                                 href="https://drive.google.com/file/d/1bnZ1tLP1hOJJ2GeQFEMTK5cPjEdHvyf2/view?usp"
@@ -83,11 +82,12 @@ dashboard_layout = dbc.Container(
                          "For each of the above, the first graph shows daily H(t). The regression line is fitted on "
                          "last 40 days daily H(t). However, user can specify the start date explicitly to manually "
                          "adjust how many past days H(t) to be used for fitting, the line is then extrapolated till "
-                         "H(t) reaches approximately 1.0001 (1.001 for states and districts). R-squared value is "
-                         "shown which measures the goodness of the fit. R-squared normally takes a value between 0 "
-                         "and 1, generally higher the value, better is the fit. Choice of states/union territories, "
-                         "and of districts can be made using the corresponding drop-down menu. The second and third "
-                         "graphs show the daily new cases, and the daily active cases, respectively. "
+                         "H(t) reaches 1.0001. R-squared value is shown which measures the goodness of the fit. "
+                         "R-squared normally takes a value between 0 and 1, generally higher the value, better is the "
+                         "fit. The line is not extrapolated if it's slope is positive or r-squared value is less than "
+                         "0.1, as it will be meaningless. Choice of states/union territories, and of districts can be "
+                         "made using the corresponding drop-down menu. The second and third graphs show the daily new "
+                         "cases, and the daily active cases, respectively. "
                          ]
                ),
         html.P(children=[html.B("Disclaimer: "), "It must be understood that the prediction shown here is based on a "
